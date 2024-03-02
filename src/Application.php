@@ -33,6 +33,7 @@ final class Application extends ConsoleApplication
         $this->setAutoExit(false);
         $config = $this->container->get('config');
         foreach ($config['commands'] as $command) {
+            $this->add($this->container->get($command));
         }
 
         return parent::run($input, $output);

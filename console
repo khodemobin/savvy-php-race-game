@@ -7,7 +7,7 @@ use Symfony\Component\Yaml\Yaml;
 $autoload = require __DIR__ . '/vendor/autoload.php';
 
 $container = new DI\Container([
-    'config' => Yaml::parse(file_get_contents(__DIR__ . '/config/config.yaml'))
+    'config' => Yaml::parse(file_get_contents(__DIR__ . '/config/config.yaml')),
 ]);
 
 $app = new Application($container);
