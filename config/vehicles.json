@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Car one",
+    "max_speed": 200
+  },
+  {
+    "name": "Car two",
+    "max_speed": 120
+  },
+  {
+    "name": "Car three",
+    "max_speed": 180
+  }
+]

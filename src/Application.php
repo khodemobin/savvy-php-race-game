@@ -18,15 +18,23 @@ final class Application extends ConsoleApplication
      */
     public function __construct(private readonly ContainerInterface $container)
     {
-        parent::__construct("php-race-app", "1.0.0");
+        $config = $this->container->get('config');
+        parent::__construct($config['name'], $config['version']);
     }
 
 
     /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      * @throws \Exception
      */
     public function run(InputInterface $input = null, OutputInterface $output = null): int
     {
+        $this->setAutoExit(false);
+        $config = $this->container->get('config');
+        foreach ($config['commands'] as $command) {
+        }
+
         return parent::run($input, $output);
     }
 }

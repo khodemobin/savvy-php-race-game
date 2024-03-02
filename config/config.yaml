@@ -1,0 +1,5 @@
+name: php-race-game
+version: "1.0.0"
+game_settings: "./vehicles.json"
+commands:
+  -
