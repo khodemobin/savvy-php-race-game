@@ -1,0 +1,19 @@
+{
+  "name": "savvy/php-race-game",
+  "authors": [
+    {
+      "name": "mobin yazdanparast",
+      "email": "mobinyazdanparast9@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "8.3",
+    "symfony/console": "^7.0",
+    "zendframework/zend-servicemanager": "^2.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "RaceCli\\Console\\": "src/"
+    }
+  }
+}
