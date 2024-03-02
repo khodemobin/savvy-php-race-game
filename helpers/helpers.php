@@ -3,7 +3,7 @@
 use Symfony\Component\VarDumper\VarDumper;
 
 if (!function_exists('dd')) {
-    function dd(mixed ...$vars)
+    function dd(mixed ...$vars): never
     {
         if (!\in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) && !headers_sent()) {
             header('HTTP/1.1 500 Internal Server Error');

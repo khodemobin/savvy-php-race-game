@@ -7,7 +7,7 @@
     }
   ],
   "require": {
-    "php": ">=8.3",
+    "php": "^8.3",
     "symfony/console": "^7.0",
     "php-di/php-di": "^7.0"
   },
