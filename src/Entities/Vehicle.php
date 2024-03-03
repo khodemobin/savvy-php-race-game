@@ -8,6 +8,7 @@ class Vehicle
         public string $name,
         public int    $maxSpeed,
         public string $unit,
+        public float|null    $finishTime = null,
     )
     {
     }
