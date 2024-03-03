@@ -10,15 +10,18 @@ use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-final class Application extends ConsoleApplication
+class Application extends ConsoleApplication
 {
+    private static ContainerInterface $container;
+
     /**
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function __construct(private readonly ContainerInterface $container)
+    public function __construct(ContainerInterface $container)
     {
-        $config = $this->container->get('config');
+        self::$container = $container;
+        $config = $container->get('config');
         parent::__construct($config['name'], $config['version']);
     }
 
@@ -31,11 +34,16 @@ final class Application extends ConsoleApplication
     public function run(InputInterface $input = null, OutputInterface $output = null): int
     {
         $this->setAutoExit(false);
-        $config = $this->container->get('config');
+        $config = self::container()->get('config');
         foreach ($config['commands'] as $command) {
-            $this->add($this->container->get($command));
+            $this->add(self::container()->get($command));
         }
 
         return parent::run($input, $output);
+    }
+
+    public static function container(): ContainerInterface
+    {
+        return self::$container;
     }
 }

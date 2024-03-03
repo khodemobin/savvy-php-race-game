@@ -1,5 +1,5 @@
 name: php-race-game
 version: "1.0.0"
-game_settings: "./vehicles.json"
+vehicles_path: "./config/vehicles.json"
 commands:
   - RaceCli\Console\Commands\RaceCommand
